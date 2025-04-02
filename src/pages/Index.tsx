@@ -22,7 +22,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen pb-24 bg-gray-100">
-      <div className="bg-[url('../../public/lotusBg.png')] bg-cover bg-center min-h-[300px]">
+      <div className="bg-[url('/lotusBg.png')] bg-cover bg-center min-h-[300px]">
         <Header logoSrc={LogoSvg} />
         <ProfileSection {...profile} />
       </div>
