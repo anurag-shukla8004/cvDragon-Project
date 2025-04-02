@@ -2,6 +2,7 @@
 import React from 'react';
 import { X } from 'lucide-react';
 import { Sheet, SheetContent, SheetHeader } from '@/components/ui/sheet';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -33,15 +34,15 @@ const sidebarLinks = [
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, userProfile }) => {
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
-      <SheetContent side="left" className="p-0 border-r w-[300px] sm:max-w-[300px]">
+      <SheetContent side="left" className="p-0 border-r w-[300px] sm:max-w-[300px] flex flex-col">
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 rounded-full w-8 h-8 bg-white flex items-center justify-center shadow-sm"
+          className="absolute top-4 right-4 rounded-full w-8 h-8 bg-white flex items-center justify-center shadow-sm z-10"
         >
           <X className="w-5 h-5 text-gray-700" />
         </button>
         
-        <div className="border-b p-6 flex items-center">
+        <div className="border-b p-6 flex items-center shrink-0">
           <img 
             src={userProfile.avatarSrc}
             alt={userProfile.name}
@@ -59,19 +60,21 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, userProfile }) => {
           </div>
         </div>
         
-        <div className="py-4">
-          {sidebarLinks.map((link, index) => (
-            <button 
-              key={index}
-              className="w-full flex items-center px-6 py-3 hover:bg-gray-100 transition-colors"
-            >
-              <span className="text-xl mr-4">{link.icon}</span>
-              <span className="text-gray-700">{link.label}</span>
-            </button>
-          ))}
-        </div>
+        <ScrollArea className="flex-1 overflow-y-auto">
+          <div className="py-4">
+            {sidebarLinks.map((link, index) => (
+              <button 
+                key={index}
+                className="w-full flex items-center px-6 py-3 hover:bg-gray-100 transition-colors"
+              >
+                <span className="text-xl mr-4">{link.icon}</span>
+                <span className="text-gray-700">{link.label}</span>
+              </button>
+            ))}
+          </div>
+        </ScrollArea>
         
-        <div className="absolute bottom-4 w-full text-center text-gray-500 text-sm">
+        <div className="p-4 border-t text-center text-gray-500 text-sm shrink-0">
           Version 8.97.99.00
         </div>
       </SheetContent>
