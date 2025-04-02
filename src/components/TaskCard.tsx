@@ -49,33 +49,34 @@ const TaskCard: React.FC<TaskCardProps> = ({ title, status, daysLeft, animationO
         return (
           <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center">
             <div className="text-center">
-              <div className="text-lg font-bold">{daysLeft}</div>
+              <div className="text-sm font-medium">{daysLeft}</div>
               <div className="text-xs">Days Left</div>
             </div>
           </div>
         );
-      default: return null;
+        default: return null;
     }
   };
 
   return (
-    <div 
-      className="task-card bg-white rounded-xl p-4 shadow-sm flex items-center justify-between"
-      style={{"--animation-order": animationOrder} as React.CSSProperties}
-    >
-      <div className="flex items-center gap-4">
-        {getStatusIcon()}
-        <div>
-          <h3 className="font-medium">{title}</h3>
-          <div className={`status-badge inline-block px-3 py-1 rounded-full text-xs font-medium mt-1 ${getStatusColor()}`}>
-            {getStatusText()}
-          </div>
-        </div>
+<div 
+  className="group task-card bg-white rounded-xl p-4 shadow-sm flex items-center justify-between 
+             transition-all duration-300 transform hover:scale-105"
+  style={{ "--animation-order": animationOrder } as React.CSSProperties}
+>
+  <div className="flex items-center gap-4 transition-[padding] duration-300 group-hover:p-1">
+    {getStatusIcon()}
+    <div>
+      <h3 className="font-medium">{title}</h3>
+      <div className={`status-badge inline-block px-3 py-1 rounded-full text-xs font-medium mt-1 ${getStatusColor()}`}>
+        {getStatusText()}
       </div>
-      <button className="text-gray-400">
-        <MoreVertical className="w-5 h-5" />
-      </button>
     </div>
+  </div>
+  <button className="text-gray-400">
+    <MoreVertical className="w-5 h-5" />
+  </button>
+</div>
   );
 };
 

@@ -28,7 +28,7 @@ const TaskList: React.FC = () => {
           </svg>
           <h2 className="text-xl font-bold text-sangathan-primary">Tasks</h2>
         </div>
-        <button className="text-sangathan-primary font-medium">View All</button>
+        <button className="bg-white px-4 py-2 rounded-lg shadow-sm text-sangathan-primary font-medium text-sm">View All</button>
       </div>
       
       <div className="space-y-4">

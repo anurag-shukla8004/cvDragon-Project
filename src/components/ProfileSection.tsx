@@ -30,11 +30,11 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({ name, role, points, ava
           </div>
         </div>
       </div>
-      <div className="bg-white px-4 py-2 rounded-full shadow-sm flex items-center gap-2">
+      <div className="bg-white px-4 py-2 rounded-lg shadow-sm flex items-center gap-2 cursor-pointer">
         <div className="w-5 h-5 rounded-full flex items-center justify-center bg-sangathan-primary">
           <span className="text-white text-xs">₹</span>
         </div>
-        <span className="font-bold text-sangathan-primary">{points}</span>
+        <span className="font-semibold text-sangathan-primary cursor-pointer">{points}</span>
       </div>
     </div>
   );

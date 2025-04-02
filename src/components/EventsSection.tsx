@@ -3,6 +3,7 @@ import React from 'react';
 import { MapPin } from 'lucide-react';
 import { Button } from './ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
+import PrayImg from '../../public/prayImg.png'
 
 interface EventCardProps {
   title: string;
@@ -14,7 +15,7 @@ interface EventCardProps {
 
 const EventCard: React.FC<EventCardProps> = ({ title, location, date, month, imageUrl }) => {
   return (
-    <div className="relative overflow-hidden rounded-xl h-32">
+    <div className="relative overflow-hidden rounded-xl h-full">
       <img 
         src={imageUrl} 
         alt={title} 
@@ -42,21 +43,21 @@ const EventsSection: React.FC = () => {
       location: 'Ahmedabad',
       date: '17',
       month: 'June',
-      imageUrl: 'https://images.unsplash.com/photo-1591115765373-5207764f72e4?q=80&w=2070&auto=format&fit=crop'
+      imageUrl: PrayImg
     },
     {
       title: 'Terapanth Sthapna Divas',
       location: 'Ahmedabad',
       date: '17',
       month: 'June',
-      imageUrl: 'https://images.unsplash.com/photo-1591115765373-5207764f72e4?q=80&w=2070&auto=format&fit=crop'
+      imageUrl: PrayImg
     },
     {
       title: 'Yoga Day Celebration',
       location: 'Mumbai',
       date: '21',
       month: 'June',
-      imageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2070&auto=format&fit=crop'
+      imageUrl: PrayImg
     }
   ];
 
@@ -76,7 +77,7 @@ const EventsSection: React.FC = () => {
           </svg>
           <h2 className="text-xl font-bold text-sangathan-primary">Events</h2>
         </div>
-        <button className="text-sangathan-primary font-medium text-sm">View All</button>
+        <button className="bg-white px-4 py-2 rounded-lg shadow-sm text-sangathan-primary font-medium text-sm">View All</button>
       </div>
       
       <Carousel className="w-full">

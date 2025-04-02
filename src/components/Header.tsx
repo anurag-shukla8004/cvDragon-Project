@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Menu, User } from 'lucide-react';
 import Sidebar from './Sidebar';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   logoSrc: string;
@@ -32,7 +33,9 @@ const Header: React.FC<HeaderProps> = ({ logoSrc }) => {
         </div>
         
         <button className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
-          <User className="w-6 h-6 text-gray-700" />
+          <Link to={'/profile'}>
+            <User className="w-6 h-6 text-gray-700" />
+          </Link>
         </button>
       </header>
 

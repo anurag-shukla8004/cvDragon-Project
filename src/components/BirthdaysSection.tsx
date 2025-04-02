@@ -12,23 +12,11 @@ interface BirthdayCardProps {
 
 const BirthdayCard: React.FC<BirthdayCardProps> = ({ name, role, imageUrl, isActive = false }) => {
   return (
-    <div className={`relative px-4 py-5 rounded-xl flex flex-col items-center h-full ${isActive ? 'border-2 border-dashed border-gray-300' : ''}`}>
-      {isActive && (
-        <div className="absolute -top-2 -left-2 w-4 h-4 bg-sangathan-primary rounded-full"></div>
-      )}
-      {isActive && (
-        <div className="absolute -top-2 -right-2 w-4 h-4 bg-sangathan-primary rounded-full"></div>
-      )}
-      {isActive && (
-        <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-sangathan-primary rounded-full"></div>
-      )}
-      {isActive && (
-        <div className="absolute -bottom-2 -right-2 w-4 h-4 bg-sangathan-primary rounded-full"></div>
-      )}
+    <div className={`relative px-4 py-5 rounded-xl flex flex-col items-center h-full`}>
       <img 
         src={imageUrl} 
         alt={name} 
-        className="w-16 h-16 rounded-full object-cover mb-2"
+        className="w-21 h-21 rounded-full object-cover mb-2"
       />
       <h3 className="font-bold text-sangathan-primary">{name}</h3>
       <p className="text-xs text-gray-600">{role}</p>
@@ -93,10 +81,12 @@ const BirthdaysSection: React.FC = () => {
           <div key={i} className={`w-2 h-2 rounded-full ${i === 0 ? 'bg-sangathan-primary' : 'bg-gray-300'}`} />
         ))}
       </div>
-
-      <Button variant="outline" className="w-full mt-4 rounded-full border-gray-300">
+     <div className='w-full flex flex-row justify-center align-center'>
+     <Button variant="outline" className="mt-5 rounded-md border border-red-600 text-red-600 bg-transparent hover:bg-red-600 hover:text-white">
         Upcoming Birthdays
       </Button>
+     </div>
+   
     </div>
   );
 };

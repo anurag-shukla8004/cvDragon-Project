@@ -1,17 +1,18 @@
 
 import React from 'react';
 import { Carousel, CarouselContent, CarouselItem } from './ui/carousel';
+import TempleImg from '../../public/Temple.webp'
 
 const NewsSection: React.FC = () => {
   const news = [
     {
       title: 'अंतराराष्ट्रीय योग दिवस में जक्कीवाड़ी संघठन द्वारा आयोजित कार्यक्रम',
-      imageUrl: 'https://images.unsplash.com/photo-1545389336-cf090694435e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      imageUrl: TempleImg,
       time: '3 mins ago'
     },
     {
       title: 'अंतराराष्ट्रीय योग दिवस में जक्कीवाड़ी संघठन द्वारा आयोजित कार्यक्रम',
-      imageUrl: 'https://images.unsplash.com/photo-1593526411462-6fdb01b0b55d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      imageUrl: TempleImg,
       time: '10 mins ago'
     }
   ];
@@ -27,18 +28,18 @@ const NewsSection: React.FC = () => {
           </svg>
           <h2 className="text-xl font-bold text-sangathan-primary">News</h2>
         </div>
-        <button className="text-sangathan-primary font-medium">View All</button>
+        <button className="bg-white px-4 py-2 rounded-lg shadow-sm text-sangathan-primary font-medium text-sm">View All</button>
       </div>
       
       <Carousel className="w-full">
         <CarouselContent>
           {news.map((item, index) => (
             <CarouselItem key={index}>
-              <div className="bg-gray-200 rounded-xl aspect-video relative overflow-hidden">
+              <div className="bg-gray-200 rounded-xl aspect-video relative overflow-hidden h-[500px] w-full">
                 <img 
                   src={item.imageUrl} 
                   alt={item.title} 
-                  className="object-cover w-full h-full"
+                  className="object-cover w-full h-[500px]"
                 />
                 <div className="absolute top-2 right-2 bg-white bg-opacity-70 backdrop-blur-sm rounded-md px-2 py-1 text-xs">
                   {item.time}
