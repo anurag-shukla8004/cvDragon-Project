@@ -4,12 +4,15 @@ import Header from '@/components/Header';
 import ProfileSection from '@/components/ProfileSection';
 import TaskList from '@/components/TaskList';
 import NewsSection from '@/components/NewsSection';
+import EventsSection from '@/components/EventsSection';
+import UpdatesSection from '@/components/UpdatesSection';
+import BirthdaysSection from '@/components/BirthdaysSection';
+import QuickLinksSection from '@/components/QuickLinksSection';
 import BottomNavigation from '@/components/BottomNavigation';
-import Logo from '@/components/Logo';
 
 const Index = () => {
   // Create a data URL for the logo
-  const logoSrc = '/lovable-uploads/a6e5c147-71e6-48cc-a886-0ea7204ee0aa.png';
+  const logoSrc = '/lovable-uploads/1cd5f25e-eb6a-4fce-bbd6-998f9116404e.png';
   
   // Mock profile data
   const profile = {
@@ -20,11 +23,15 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen pb-20 lotus-background">
+    <div className="min-h-screen pb-24 lotus-background">
       <Header logoSrc={logoSrc} />
       <ProfileSection {...profile} />
       <TaskList />
       <NewsSection />
+      <EventsSection />
+      <UpdatesSection />
+      <BirthdaysSection />
+      <QuickLinksSection />
       <BottomNavigation />
     </div>
   );

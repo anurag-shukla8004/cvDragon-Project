@@ -61,3 +61,23 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Add additional styles for better scrolling with fixed navbar */
+.pb-24 {
+  padding-bottom: 6rem;
+}
+
+/* Fix for carousel dots */
+.embla__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.embla__dot--selected {
+  background-color: #D73618;
+}

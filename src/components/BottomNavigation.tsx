@@ -4,8 +4,8 @@ import { Home, BarChart2, Users, MapPin, MessageSquare } from 'lucide-react';
 
 const BottomNavigation: React.FC = () => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg animate-fade-in" style={{ animationDelay: '0.5s' }}>
-      <div className="flex justify-between items-center px-6 py-3">
+    <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg animate-fade-in" style={{ animationDelay: '0.5s', zIndex: 50 }}>
+      <div className="flex justify-between items-center px-6 py-3 max-w-512 mx-auto">
         <NavItem icon={<Home className="w-6 h-6" />} label="Home" active />
         <NavItem icon={<BarChart2 className="w-6 h-6" />} label="Leaderboard" />
         <NavItem icon={<Users className="w-6 h-6" />} label="Community" />
