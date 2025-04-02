@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Carousel, CarouselContent, CarouselItem } from './ui/carousel';
 
 interface UpdateCardProps {
   title: string;
@@ -22,7 +23,7 @@ const UpdateCard: React.FC<UpdateCardProps> = ({ title, description, color }) =>
   };
 
   return (
-    <div className={`rounded-xl p-4 mr-3 ${getColorClasses()}`} style={{ minWidth: 180 }}>
+    <div className={`rounded-xl p-4 h-full ${getColorClasses()}`}>
       <h3 className="font-bold text-sm mb-2">{title}</h3>
       <p className="text-xs mb-4 line-clamp-3">{description}</p>
       <div className="flex justify-between items-center mt-auto">
@@ -54,6 +55,11 @@ const UpdatesSection: React.FC = () => {
       description: 'सभी सदस्यों को सूचित किया जाता है की कार्यसमिति की बैठक इस रविवार को है।',
       color: 'orange' as const
     },
+    {
+      title: 'नए सदस्य',
+      description: 'इस महीने हमारे संघटन में 5 नए सदस्य शामिल हुए हैं।',
+      color: 'dark' as const
+    }
   ];
 
   return (
@@ -70,18 +76,19 @@ const UpdatesSection: React.FC = () => {
         <button className="text-sangathan-primary font-medium text-sm">View All</button>
       </div>
       
-      <div className="overflow-x-auto -mx-6 px-6 pb-2">
-        <div className="flex">
+      <Carousel className="w-full">
+        <CarouselContent>
           {updates.map((update, index) => (
-            <UpdateCard 
-              key={index} 
-              title={update.title} 
-              description={update.description}
-              color={update.color}
-            />
+            <CarouselItem key={index} className="md:basis-1/2" style={{ minHeight: '160px' }}>
+              <UpdateCard 
+                title={update.title} 
+                description={update.description}
+                color={update.color}
+              />
+            </CarouselItem>
           ))}
-        </div>
-      </div>
+        </CarouselContent>
+      </Carousel>
 
       <div className="flex justify-center mt-3 space-x-1">
         {[0, 1, 2].map((_, i) => (

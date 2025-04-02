@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { CalendarDays } from 'lucide-react';
 import { Button } from './ui/button';
+import { Carousel, CarouselContent, CarouselItem } from './ui/carousel';
 
 interface BirthdayCardProps {
   name: string;
@@ -12,7 +12,7 @@ interface BirthdayCardProps {
 
 const BirthdayCard: React.FC<BirthdayCardProps> = ({ name, role, imageUrl, isActive = false }) => {
   return (
-    <div className={`relative mr-4 px-4 py-5 rounded-xl flex flex-col items-center ${isActive ? 'border-2 border-dashed border-gray-300' : ''}`}>
+    <div className={`relative px-4 py-5 rounded-xl flex flex-col items-center h-full ${isActive ? 'border-2 border-dashed border-gray-300' : ''}`}>
       {isActive && (
         <div className="absolute -top-2 -left-2 w-4 h-4 bg-sangathan-primary rounded-full"></div>
       )}
@@ -48,6 +48,16 @@ const BirthdaysSection: React.FC = () => {
       name: 'अमित शाह',
       role: 'कार्यसमिति सदस्य',
       imageUrl: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=150&h=150&q=80'
+    },
+    {
+      name: 'प्रिया पटेल',
+      role: 'कार्यसमिति सदस्य',
+      imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=80'
+    },
+    {
+      name: 'राजेश गुप्ता',
+      role: 'कार्यसमिति सदस्य',
+      imageUrl: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=80'
     }
   ];
 
@@ -63,19 +73,20 @@ const BirthdaysSection: React.FC = () => {
         </div>
       </div>
       
-      <div className="overflow-x-auto -mx-6 px-6 pb-2">
-        <div className="flex">
+      <Carousel className="w-full">
+        <CarouselContent>
           {birthdays.map((birthday, index) => (
-            <BirthdayCard 
-              key={index} 
-              name={birthday.name} 
-              role={birthday.role}
-              imageUrl={birthday.imageUrl}
-              isActive={birthday.isActive}
-            />
+            <CarouselItem key={index} className="md:basis-1/3">
+              <BirthdayCard 
+                name={birthday.name} 
+                role={birthday.role}
+                imageUrl={birthday.imageUrl}
+                isActive={birthday.isActive}
+              />
+            </CarouselItem>
           ))}
-        </div>
-      </div>
+        </CarouselContent>
+      </Carousel>
 
       <div className="flex justify-center mt-3 space-x-1">
         {[0, 1, 2].map((_, i) => (

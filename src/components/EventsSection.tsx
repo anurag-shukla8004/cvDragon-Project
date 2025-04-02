@@ -1,7 +1,8 @@
 
 import React from 'react';
-import { CalendarDays, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import { Button } from './ui/button';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 
 interface EventCardProps {
   title: string;
@@ -13,7 +14,7 @@ interface EventCardProps {
 
 const EventCard: React.FC<EventCardProps> = ({ title, location, date, month, imageUrl }) => {
   return (
-    <div className="relative overflow-hidden rounded-xl h-32 mr-3">
+    <div className="relative overflow-hidden rounded-xl h-32">
       <img 
         src={imageUrl} 
         alt={title} 
@@ -49,6 +50,13 @@ const EventsSection: React.FC = () => {
       date: '17',
       month: 'June',
       imageUrl: 'https://images.unsplash.com/photo-1591115765373-5207764f72e4?q=80&w=2070&auto=format&fit=crop'
+    },
+    {
+      title: 'Yoga Day Celebration',
+      location: 'Mumbai',
+      date: '21',
+      month: 'June',
+      imageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2070&auto=format&fit=crop'
     }
   ];
 
@@ -71,20 +79,21 @@ const EventsSection: React.FC = () => {
         <button className="text-sangathan-primary font-medium text-sm">View All</button>
       </div>
       
-      <div className="overflow-x-auto -mx-6 px-6 pb-2">
-        <div className="flex">
+      <Carousel className="w-full">
+        <CarouselContent>
           {events.map((event, index) => (
-            <EventCard 
-              key={index} 
-              title={event.title} 
-              location={event.location}
-              date={event.date}
-              month={event.month}
-              imageUrl={event.imageUrl}
-            />
+            <CarouselItem key={index} className="md:basis-1/2">
+              <EventCard 
+                title={event.title} 
+                location={event.location}
+                date={event.date}
+                month={event.month}
+                imageUrl={event.imageUrl}
+              />
+            </CarouselItem>
           ))}
-        </div>
-      </div>
+        </CarouselContent>
+      </Carousel>
 
       <div className="flex justify-center mt-3 space-x-1">
         {[0, 1, 2].map((_, i) => (
